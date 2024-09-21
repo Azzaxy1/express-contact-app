@@ -1,17 +1,9 @@
-<h1>Hello World</h1>
-<p>Welcome to my Site..</p>
-<h2>Hallo <%= nama %>
-</h2>
-<h4>Daftar Mahasiswa</h4>
-<% if (mahasiswa.length < 1) { %>
-  <p>Data mahasiswa masih kosong</p>
-  <% } else { %>
-    <% mahasiswa.forEach(mhs=> { %>
-      <ul>
-        <li>Nama : <%= mhs.nama %>
-        </li>
-        <li>Email : <%= mhs.email %>
-        </li>
-      </ul>
-      <% }) %>
-        <%} %>
+<div class="jumbotron d-flex  flex-column justify-content-center h-100">
+  <h1 class="display-4">Welcome to ContactEase!</h1>
+  <p class="lead">Your one-stop contact management solution.</p>
+  <hr class="my-4">
+  <p>Organize your contacts with ease and keep your important connections close at hand.</p>
+  <div>
+    <a class="btn btn-primary btn-lg" href="/contact" role="button">View Contacts</a>
+  </div>
+</div>
