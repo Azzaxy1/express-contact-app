@@ -42,4 +42,10 @@ const addContact = (contact) => {
   saveContacts(contacts);
 };
 
-module.exports = { loadContacts, findContact, addContact };
+// cek nama duplikat
+const checkDuplicate = (nama) => {
+  const contacts = loadContacts();
+  return contacts.find((contact) => contact.nama === nama);
+};
+
+module.exports = { loadContacts, findContact, addContact, checkDuplicate };
