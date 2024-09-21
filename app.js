@@ -1,33 +1,18 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
-const { loadContact, findContact } = require("./utils/contact");
+const { loadContacts, findContact, addContact } = require("./utils/contact");
 
 const port = 3000;
 
 app.set("view engine", "ejs"); // gunakan ejs
 app.use(expressLayouts); // Third party middleware
 app.use(express.static("public")); // Built-in level middleware
+app.use(express.urlencoded());
 
 app.get("/", (req, res) => {
-  const mahasiswa = [
-    {
-      nama: "Azis",
-      email: "azis@gmail.com",
-    },
-    {
-      nama: "Hadi",
-      email: "hadi@gmail.com",
-    },
-    {
-      nama: "Ahmad",
-      email: "ahmad@gmail.com",
-    },
-  ];
   res.render("index", {
-    nama: "Abdurrohman Azis",
     title: "Halaman Home",
-    mahasiswa,
     layout: "layouts/main-layout",
     activeRoute: "home",
   });
@@ -42,7 +27,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  const contacts = loadContact();
+  const contacts = loadContacts();
 
   res.render("contact", {
     title: "Halaman Contact",
@@ -52,6 +37,22 @@ app.get("/contact", (req, res) => {
   });
 });
 
+// halaman form tambah data
+app.get("/contact/add", (req, res) => {
+  res.render("add-contact", {
+    title: "Form Tambah Data Contact",
+    layout: "layouts/main-layout",
+    activeRoute: "contact",
+  });
+});
+
+// proses data contact
+app.post("/contact", (req, res) => {
+  addContact(req.body);
+  res.redirect("/contact");
+});
+
+// halaman detail contact
 app.get("/contact/:nama", (req, res) => {
   const params = req.params.nama;
   const contact = findContact(params);
