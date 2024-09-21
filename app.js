@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
     title: "Halaman Home",
     mahasiswa,
     layout: "layouts/main-layout",
+    activeRoute: "home",
   });
 });
 
@@ -36,6 +37,7 @@ app.get("/about", (req, res) => {
   res.render("about", {
     title: "Halaman About",
     layout: "layouts/main-layout",
+    activeRoute: "about",
   });
 });
 
@@ -46,6 +48,7 @@ app.get("/contact", (req, res) => {
     title: "Halaman Contact",
     layout: "layouts/main-layout",
     contacts,
+    activeRoute: "contact",
   });
 });
 
