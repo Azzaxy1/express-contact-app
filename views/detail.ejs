@@ -1,32 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h1>Detail Contact</h1>
+<style>
+  .fullscreen {
+    height: 100vh;
+  }
+</style>
 
-      <% if (!contact) { %>
-        <div class="alert alert-danger" role="alert">
-          Contact dengan nama <b>
-            <%= params %>
-          </b> tidak ditemukan.
-          <br>
-          <a href="/contact" class="alert-link">&laquo; Kembali ke daftar kontak</a>
-        </div>
-        <% } else { %>
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= contact.nama %>
-              </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                <%= contact.nohp %>
-              </h6>
-              <p class="card-text">
-                <%= contact.email %>
-              </p>
-              <a href="/contact" class="btn btn-primary"><i class="bi bi-backspace-fill"></i> Kembali </a>
-            </div>
+<div class="row fullscreen mt-4">
+  <div class="col-md-8 ">
+    <h2>Detail Contact</h2>
+
+    <% if (!contact) { %>
+      <div class="alert alert-danger" role="alert">
+        Contact dengan nama <b>
+          <%= params %>
+        </b> tidak ditemukan.
+        <br>
+        <a href="/contact" class="alert-link">&laquo; Kembali ke daftar kontak</a>
+      </div>
+      <% } else { %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= contact.nama %>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+              <%= contact.nohp %>
+            </h6>
+            <p class="card-text">
+              <%= contact.email %>
+            </p>
+            <a href="/contact" class="btn btn-primary"><i class="bi bi-backspace-fill"></i> Kembali </a>
           </div>
-          <% } %>
-    </div>
+        </div>
+        <% } %>
   </div>
 </div>

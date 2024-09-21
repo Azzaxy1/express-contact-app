@@ -61,6 +61,7 @@ app.get("/contact/:nama", (req, res) => {
     layout: "layouts/main-layout",
     contact,
     params,
+    activeRoute: "contact",
   });
 });
 
